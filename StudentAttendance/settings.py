@@ -16,6 +16,11 @@ import os
 BASE_DIR = Path(__file__).resolve().parent.parent
 import dj_database_url
 
+from decouple import config
+
+ALLOWED_HOSTS = config('ALLOWED_HOSTS', default='').split(',')
+
+
 DATABASES = {
     'default': dj_database_url.config(default='sqlite:///db.sqlite3')
 }
@@ -31,7 +36,7 @@ SECRET_KEY = 'django-insecure-b7m2htsi&nlac-bsev-1t1wwp7*=g=z6e^s!l3q9wy2t(e$7w!
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ["*"]
+# ALLOWED_HOSTS = ["*"]
 
 
 # Application definition
