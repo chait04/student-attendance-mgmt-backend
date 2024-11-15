@@ -18,7 +18,12 @@ import dj_database_url
 
 from decouple import config
 
-ALLOWED_HOSTS = config('ALLOWED_HOSTS', default='').split(',')
+# ALLOWED_HOSTS = config('ALLOWED_HOSTS', default='').split(',')
+ALLOWED_HOSTS = [
+    'localhost',
+    '127.0.0.1',
+    'student-attendance-mgmt-backend-1.onrender.com',  # Add your Render domain here
+]
 
 
 DATABASES = {
