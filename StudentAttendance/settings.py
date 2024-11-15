@@ -25,6 +25,13 @@ DATABASES = {
     'default': dj_database_url.config(default='sqlite:///db.sqlite3')
 }
 
+CORS_ALLOWED_ORIGINS = [
+    "http://localhost:3000",  # For local development
+    "https://student-attendance-mgmt-frontend.vercel.app/",  # Your deployed React app
+]
+
+CORS_ALLOW_ALL_ORIGINS = True
+
 DEBUG = os.getenv('DEBUG', 'False') == 'True'
 
 # Quick-start development settings - unsuitable for production
@@ -59,6 +66,7 @@ MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
     'whitenoise.middleware.WhiteNoiseMiddleware',  # Add this
     # Other middleware...
+    'corsheaders.middleware.CorsMiddleware',
 ]
 
 STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
